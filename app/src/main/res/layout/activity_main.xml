@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,42 +17,42 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="厂    商："
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tv_oem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="型    号："
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tv_model"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
         android:orientation="horizontal">
 
         <TextView
@@ -63,7 +62,7 @@
             android:textSize="18sp"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="21dp"
-            tools:layout_editor_absoluteY="71dp"/>
+            tools:layout_editor_absoluteY="71dp" />
 
         <TextView
             android:id="@+id/tv_version"
@@ -72,17 +71,27 @@
             android:textSize="18sp"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="154dp"
-            tools:layout_editor_absoluteY="71dp"/>
+            tools:layout_editor_absoluteY="71dp" />
     </LinearLayout>
 
     <Button
-        android:layout_gravity="center"
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="Setting"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="282dp"/>
+        tools:layout_editor_absoluteY="282dp" />
+
+    <Button
+        android:id="@+id/btn_app_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="应用列表"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="282dp" />
 
 </LinearLayout>
