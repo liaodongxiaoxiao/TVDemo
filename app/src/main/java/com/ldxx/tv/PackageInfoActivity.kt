@@ -1,5 +1,6 @@
 package com.ldxx.tv
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
@@ -15,6 +16,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_package_info.*
 import android.widget.ProgressBar
 import android.view.ViewGroup
+import android.widget.Toast
 
 
 class PackageInfoActivity : AppCompatActivity() {
@@ -46,6 +48,7 @@ class PackageInfoActivity : AppCompatActivity() {
 
 
             override fun onNext(t: MutableList<PackageInfoBean>) {
+                t.sortBy { it.appName?.toLowerCase() }
                 setUpData(t)
             }
 
@@ -64,6 +67,18 @@ class PackageInfoActivity : AppCompatActivity() {
 
     private fun setUpData(t: MutableList<PackageInfoBean>) {
         val adapter = PackageInfoAdapter(t)
+        adapter.setOnPackageItemClickListener(object :PackageInfoAdapter.OnPackageItemClickListener{
+            override fun onItemClick(packageName: String?) {
+                if (packageName!=null){
+                    startActivity(Intent(this@PackageInfoActivity,PackageDetailActivity::class.java).apply {
+                        putExtra("packageName",packageName)
+                    })
+                }else{
+                    Toast.makeText(this@PackageInfoActivity,"package name 为空",Toast.LENGTH_SHORT).show()
+                }
+            }
+
+        })
         rv_app_list.layoutManager = LinearLayoutManager(this)
         rv_app_list.adapter = adapter
     }

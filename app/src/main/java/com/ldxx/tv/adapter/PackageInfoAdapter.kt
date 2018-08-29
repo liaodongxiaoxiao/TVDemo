@@ -12,6 +12,7 @@ import com.ldxx.tv.entity.PackageInfoBean
 class PackageInfoAdapter(val data: MutableList<PackageInfoBean>) : RecyclerView.Adapter<PackageInfoAdapter.PackageInfoViewHolder>() {
 
     //private val data: MutableList<PackageInfoBean> = mutableListOf()
+    private var listener: OnPackageItemClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PackageInfoViewHolder {
         return PackageInfoViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_package_info, parent, false))
@@ -27,7 +28,19 @@ class PackageInfoAdapter(val data: MutableList<PackageInfoBean>) : RecyclerView.
             tvName.text = entity.appName
             tvPackageName.text = entity.packageName
             tvVersion.text = entity.versionName
+
+            itemView.setOnClickListener {
+                listener?.onItemClick(entity.packageName)
+            }
         }
+    }
+
+    interface OnPackageItemClickListener {
+        fun onItemClick(packageName: String?)
+    }
+
+    fun setOnPackageItemClickListener(listener: OnPackageItemClickListener) {
+        this.listener = listener
     }
 
     inner class PackageInfoViewHolder(view: View) : RecyclerView.ViewHolder(view) {

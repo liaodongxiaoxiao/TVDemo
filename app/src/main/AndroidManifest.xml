@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PackageInfoActivity"></activity>
+        <activity android:name=".PackageInfoActivity" />
+        <activity android:name=".PackageDetailActivity"></activity>
     </application>
 
 </manifest>
